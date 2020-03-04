@@ -9,9 +9,11 @@ class Palette extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            level: 500
+            level: 500,
+            format: 'hex'
         }
         this.changeLevel = this.changeLevel.bind(this);
+        this.changeFormat = this.changeFormat.bind(this);
     }
 
     changeLevel(level) {
@@ -20,9 +22,16 @@ class Palette extends Component {
         })
     }
 
+    changeFormat(value) {
+       this.setState({
+           format: value
+       }) 
+    }
+
     render() {
         const {
-            level
+            level,
+            format
         } = this.state;
 
         const {
@@ -31,7 +40,7 @@ class Palette extends Component {
 
         const colorBoxes = colors[this.state.level].map((color, idx) => (
             <ColorBox 
-                background={color.hex} 
+                background={color[format]} 
                 name={color.name}
                 key={idx}
             />
@@ -41,6 +50,7 @@ class Palette extends Component {
                 <Navbar
                     level={level}
                     changeLevel={this.changeLevel}
+                    handleChange={this.changeFormat}
                 />
                 <div className="Palette-colors">
                     {colorBoxes}
