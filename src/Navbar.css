@@ -4,6 +4,12 @@
     justify-content: flex-start;
     height: 6vh;
 }
+
+.select-container {
+    margin-left: auto;
+    margin-right: 0.5rem
+}
+
 .logo {
     margin-right: 15px;
     padding: 0 13px;
