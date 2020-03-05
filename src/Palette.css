@@ -3,6 +3,8 @@
 .Palette {
     height: 100vh;
     font-family: 'Noto Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
 .Palette-colors {
